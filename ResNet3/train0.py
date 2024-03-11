@@ -27,8 +27,8 @@ transform_test = transforms.Compose([
                                                             std=[0.229, 0.224, 0.225])
                                    ])
 
-train_set = datasets.CIFAR10(root="../cifar",train=True,download=True,transform=transform_train)
-test_set = datasets.CIFAR10(root="../cifar",train=False,download=True,transform=transform_test)
+train_set = datasets.CIFAR10(root="../cifar",train=True,download=False,transform=transform_train)
+test_set = datasets.CIFAR10(root="../cifar",train=False,download=False,transform=transform_test)
 
 train_loader = DataLoader(train_set,batch_size=BATCH_SIZE,shuffle=True,num_workers=2)#num_worker吃CPU，加快速度，不改变效果
 test_loader = DataLoader(test_set,batch_size=BATCH_SIZE,shuffle=False,num_workers=2)
