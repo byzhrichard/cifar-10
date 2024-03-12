@@ -2,10 +2,11 @@ PS：模型download均已改成False
 
 89.280%     以下改变都基于ResNet1
 
-89.390%     修改了optimizer
-
-
-
+89.390%     ResNet2修改了optimizer
+83.550%     ResNet3 数据初始化-另一种
+83.290%     ResNet4 数据初始化-去掉了transform
+88.300%     ResNet5 数据初始化-去掉了transform，保留crop
+86.550%     ResNet6 数据初始化-去掉了transform，保留flip
 
 
 
