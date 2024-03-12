@@ -1,4 +1,4 @@
-#
+#optimizer
 import numpy as np
 import torch
 import os
@@ -33,8 +33,8 @@ test_loader = DataLoader(test_set,batch_size=BATCH_SIZE,shuffle=False,num_worker
 
 model = ResNet18().to(DEVICE)
 criterion = nn.CrossEntropyLoss().to(DEVICE)
-optimizer = optim.SGD(model.parameters(), lr=LR, momentum=0.9, weight_decay=5e-4)   #
-
+# optimizer = optim.SGD(model.parameters(), lr=LR, momentum=0.9, weight_decay=5e-4)
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
 if __name__ == '__main__':
     os.makedirs("model", exist_ok=True)
     os.makedirs("log", exist_ok=True)

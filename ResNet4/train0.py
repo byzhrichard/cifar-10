@@ -1,4 +1,4 @@
-#
+#transform
 import numpy as np
 import torch
 import os
@@ -14,8 +14,6 @@ BATCH_SIZE = 64
 LR = 0.01
 
 transform_train = transforms.Compose([
-    transforms.RandomCrop(32, padding=4),  #
-    transforms.RandomHorizontalFlip(),  #一半的概率水平翻转
     transforms.ToTensor(),
     transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)), #
 ])
