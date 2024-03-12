@@ -1,4 +1,4 @@
-#
+#去除momentum=0.9
 import numpy as np
 import torch
 import os
@@ -33,7 +33,7 @@ test_loader = DataLoader(test_set,batch_size=BATCH_SIZE,shuffle=False,num_worker
 
 model = ResNet18().to(DEVICE)
 criterion = nn.CrossEntropyLoss().to(DEVICE)
-optimizer = optim.SGD(model.parameters(), lr=LR, momentum=0.9, weight_decay=5e-4)   #
+optimizer = optim.SGD(model.parameters(), lr=LR, weight_decay=5e-4)   #momentum=0.9
 
 if __name__ == '__main__':
     os.makedirs("model", exist_ok=True)
