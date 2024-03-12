@@ -71,7 +71,7 @@ if __name__ == '__main__':
         with torch.no_grad():
             correct_num = 0
             total_num = 0
-            for x, label in train_loader:
+            for x, label in test_loader:
                 x = x.to(DEVICE)  # [b,3,32,32]
                 label = label.to(DEVICE)  # [b]
                 y = model(x)  # [b,10]
