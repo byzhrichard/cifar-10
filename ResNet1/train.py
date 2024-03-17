@@ -8,7 +8,7 @@ import time
 from torch import nn, optim
 from torchvision import datasets,transforms
 from torch.utils.data import DataLoader
-from net0 import ResNet18
+from net import ResNet18
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-c','--cuda',type=str,default="cuda:7")
