@@ -115,10 +115,14 @@ if __name__ == '__main__':
     # 开始
     model = ResNet18().to(DEVICE)
     criterion = nn.CrossEntropyLoss().to(DEVICE)
-    optimizer = optim.SGD(model.parameters(), lr=LR, momentum=0.9, weight_decay=5e-4)  #
+    optimizer = optim.SGD(model.parameters(), lr=LR, momentum=0.9, weight_decay=5e-4)
+    f3 = open("log/time.txt","a")
+    start = time.time()
     for epoch in range(EPOCH):
-        f3 =
         train(model,criterion,optimizer,train_loader)
         test(model,test_loader)
-    print("完成训练")
+    end = time.time()
+    f3.write(f"完成训练，耗时{end-start}s")
+    f3.flush()
+    print(f"完成训练，耗时{end-start}s")
 
