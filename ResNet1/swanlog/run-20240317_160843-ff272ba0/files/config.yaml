@@ -1,0 +1,24 @@
+batch_size:
+  desc: null
+  sort: 3
+  value: 32
+device:
+  desc: null
+  sort: 5
+  value: cuda:7
+lr:
+  desc: null
+  sort: 2
+  value: 0.01
+model:
+  desc: null
+  sort: 0
+  value: resnet
+num_epochs:
+  desc: null
+  sort: 4
+  value: 20
+optim:
+  desc: null
+  sort: 1
+  value: SGD
