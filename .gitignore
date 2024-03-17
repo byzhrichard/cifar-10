@@ -1,3 +1,6 @@
 .idea/
 cifar/
 *.pth
+swanlog/
+log/
+model/
