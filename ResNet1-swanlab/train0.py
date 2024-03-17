@@ -26,7 +26,7 @@ def train(model,criterion,optimizer,train_loader):
     print("开始train")
     correct_num = 0
     total_num = 0
-    loss_list = []
+    avg_acc = 0
     f1 = open("log/train_data.txt", "a")
     for batchidx, (x, label) in enumerate(train_loader):
         x = x.to(DEVICE)  # [b,3,32,32]
@@ -41,17 +41,15 @@ def train(model,criterion,optimizer,train_loader):
         pred = y.argmax(dim=1)  # [b]
         total_num += x.size(0)  # batch为100
         correct_num += torch.eq(pred, label).sum().item()
-
-        loss_list.append(loss.item())
-        avg_loss = sum(loss_list) / len(loss_list)
         avg_acc = 100. * correct_num / total_num
         print('[epoch:%d, iter:%d] LOSS: %.03f | avg_ACC: %.3f%% '
-              % (epoch, (batchidx + 1 + epoch * len(train_loader)), avg_loss, avg_acc))
+              % (epoch, (batchidx + 1 + epoch * len(train_loader)), loss.item(), avg_acc))
         f1.write('[epoch:%d, iter:%d] LOSS: %.03f | avg_ACC: %.3f%% \n'
-                 % (epoch, (batchidx + 1 + epoch * len(train_loader)), avg_loss, avg_acc))
+                 % (epoch, (batchidx + 1 + epoch * len(train_loader)), loss.item(), avg_acc))
         f1.flush()
-        swanlab.log({"train_loss": avg_loss,
-                     "train_acc": avg_acc})
+        swanlab.log({"train_loss": loss.item()})
+    swanlab.log({"train_acc": avg_acc})
+    print("awa",avg_acc)
 def test(model,test_loader):
     model.eval()
     print("开始test")
