@@ -49,7 +49,6 @@ def train(model,criterion,optimizer,train_loader):
         f1.flush()
         swanlab.log({"train_loss": loss.item()})
     swanlab.log({"train_acc": avg_acc})
-    print("awa",avg_acc)
 def test(model,test_loader):
     model.eval()
     print("开始test")
@@ -120,7 +119,9 @@ if __name__ == '__main__':
         train(model,criterion,optimizer,train_loader)
         test(model,test_loader)
     end = time.time()
-    f3.write(f"完成训练，耗时{end-start}s")
+    f3.write(f"完成训练，耗时{end-start}s\n")
+    f3.write(f"参数   epoch:{EPOCH}|batch_size:{BATCH_SIZE}|lr:{LR}\n")
+    f3.write("-------------------------------------------------------\n")
     f3.flush()
     print(f"完成训练，耗时{end-start}s")
 
