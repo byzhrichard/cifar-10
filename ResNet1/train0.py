@@ -84,6 +84,7 @@ if __name__ == '__main__':
         f2.write('[epoch:%d] test的acc：%.3f%%\n' % (epoch, acc))
         f2.flush()
         print('保存模型......')
-        torch.save(model.state_dict(), 'model/net_%03d.pth' % (epoch + 1))
+        if acc >= 90:
+            torch.save(model.state_dict(), 'model/net_%03d.pth' % (epoch + 1))
 
 
