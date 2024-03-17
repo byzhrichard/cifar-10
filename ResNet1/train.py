@@ -47,7 +47,7 @@ def train(model,criterion,optimizer,train_loader):
         f1.write('[epoch:%d, iter:%d] LOSS: %.03f | avg_ACC: %.3f%% \n'
                  % (epoch, (batchidx + 1 + epoch * len(train_loader)), loss.item(), avg_acc))
         f1.flush()
-        swanlab.log({"train_loss": loss.item()})
+        swanlab.log({"train_loss": loss.item()},step=10)
     swanlab.log({"train_acc": avg_acc})
 def test(model,test_loader):
     model.eval()
